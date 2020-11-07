@@ -6,6 +6,8 @@ To build and run this docker container:
 docker build -t fluentd-mqtt:latest ./
 docker run -d  --network solace-net  --name fluentd-mqtt  -p 24224:24224 -p 5140:5140 fluentd-mqtt:latest
 ```
+Note that I am using solace-net network as the same network used by my Solace PubSub+ docker container, to allow simple access using container name as host instead of IP address.
+
 
 To test, run this simple container that will simply echo "HelloSolace" string which will then get picked up and the tag will be used as the destination topic by the MQTT output plugin.
 ```
